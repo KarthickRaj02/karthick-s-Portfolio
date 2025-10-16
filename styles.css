@@ -136,6 +136,33 @@ h3 { font-size: 18px; margin: 0 0 10px; }
 .muted { color: var(--muted); }
 .small { font-size: 12px; }
 
+/* certifications */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite alternate;
+  hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
+}
+
+.certifications-card img {
+  width: 300px;
+  height: 200px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  border-radius: 20px;
+
+}
+
+/* @keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}  */
+
 /* Contact */
 .contact-form { display: grid; gap: 12px; max-width: 700px; }
 .field { display: grid; gap: 6px; }
@@ -170,3 +197,73 @@ input:focus, textarea:focus { outline: 2px solid var(--ring); outline-offset: 2p
   .projects-grid { grid-template-columns: 1fr; }
   .highlights { grid-template-columns: 1fr; }
 }
+
+/* carousel */
+.carousel {
+  position: relative;
+   width: 750px; 
+   height: 240px;
+   margin: auto;
+   overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.certifications-card {
+   flex: 0 0 250px;
+   text-align: center;
+   transition: transform 0.5s ease, filter 0.5s ease, opacity 0.5s ease;
+   hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
+}
+
+.certifications-card img {
+   width: 100%;
+   height: 200px;
+   margin-top: 19px;
+   border-radius: 100px;
+   border-radius: 10%;
+   object-fit:contain ; 
+   hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
+
+}
+
+/* Blur sides */
+.certifications-card {
+   filter: blur(2px);
+   opacity: 0.6;
+   transform: scale(1); 
+   width: max-content;
+   border-radius: 10%;
+   hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
+}
+
+  /* Focus center */
+.certifications-card.active {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1.2); 
+  z-index: 2;
+  border-radius: 50%;
+  hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
+} 
+
+/* Buttons */
+.carousel button {
+  position: absolute;
+  top: 40%;
+  background: rgba(6, 150, 240, 0.6);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 5;
+  hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
+}
+
+.carousel .prev { left: 10px; }
+.carousel .next { right: 10px; } 

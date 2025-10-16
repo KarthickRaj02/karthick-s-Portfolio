@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const subject = encodeURIComponent(`Portfolio inquiry from ${nameInput.value.trim()}`);
       const body = encodeURIComponent(`${messageInput.value.trim()}\n\nFrom: ${nameInput.value.trim()} <${emailVal}>`);
-      const mailto = `mailto:hello@example.com?subject=${subject}&body=${body}`;
+      const mailto = `mailto:karthickraj12112004@gmail.com?subject=${subject}&body=${body}`;
       status.textContent = "Opening email client...";
       window.location.href = mailto;
       setTimeout(() => (status.textContent = ""), 2000);
@@ -124,4 +124,44 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".section, .project-card, .skill-card, .timeline-item").forEach((el) => observer.observe(el));
 });
 
+//carousel
+const track = document.querySelector(".carousel-track");
+const cards = document.querySelectorAll(".certifications-card");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+const container = document.querySelector(".carousel");
 
+let index = 0;
+const total = cards.length;
+
+function getCardWidth() {
+  // width of a single card (no margins are used)
+  return cards[0].getBoundingClientRect().width;
+}
+
+function getContainerWidth() {
+  return container.getBoundingClientRect().width;
+}
+
+function updateCarousel() {
+  const cardWidth = getCardWidth();
+  const containerWidth = getContainerWidth();
+  // center the current card
+  const offset = -index * cardWidth + (containerWidth / 2 - cardWidth / 50);
+  track.style.transform = `translateX(${offset}px)`;
+  cards.forEach(c => c.classList.remove("active"));
+  cards[((index % total) + total) % total].classList.add("active");
+}
+
+nextBtn.addEventListener("click", () => {
+  index = (index + 1) % total;
+  updateCarousel();
+});
+
+prevBtn.addEventListener("click", () => {
+  index = (index - 1 + total) % total;
+  updateCarousel();
+});
+
+window.addEventListener("resize", updateCarousel);
+updateCarousel();
