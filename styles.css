@@ -201,7 +201,7 @@ input:focus, textarea:focus { outline: 2px solid var(--ring); outline-offset: 2p
 /* carousel */
 .carousel {
   position: relative;
-   width: 750px; 
+   /* width: 750px;  */
    height: 240px;
    margin: auto;
    overflow: hidden;
@@ -225,7 +225,7 @@ input:focus, textarea:focus { outline: 2px solid var(--ring); outline-offset: 2p
    margin-top: 19px;
    border-radius: 100px;
    border-radius: 10%;
-   object-fit:contain ; 
+   /* object-fit:contain ;  */
    hover{box-shadow: 0 0 20px 6px rgba(4, 76, 231, 0.907)}
 
 }
@@ -267,3 +267,4 @@ input:focus, textarea:focus { outline: 2px solid var(--ring); outline-offset: 2p
 
 .carousel .prev { left: 10px; }
 .carousel .next { right: 10px; } 
+
